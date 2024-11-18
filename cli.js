@@ -48,7 +48,9 @@ program
     const stream = walkStream(rootPath, {
       deepFilter: (entry) => {
         const split = entry.path.split(path.sep);
-        return !split.includes('node_modules') && !split.includes('.git') && !split.includes('.cache');
+        return (
+          !split.includes('node_modules') && !split.includes('.git') && !split.includes('.cache')
+        );
       },
       errorFilter: (error) =>
         error.code === 'ENOENT' || error.code === 'EACCES' || error.code === 'EPERM',
@@ -104,7 +106,7 @@ program
 
     // if verifiedOwners is empty, exit with error
     if (verifiedOwners.length < 1) {
-      console.log(`None of the users/teams specified own the path ${checkPath}`);
+      console.error(`None of the users/teams specified own the path ${checkPath}`);
       process.exit(1);
     }
 
