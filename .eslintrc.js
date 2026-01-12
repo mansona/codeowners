@@ -14,12 +14,17 @@ module.exports = {
     'no-plusplus': 'off',
     'no-restricted-syntax': 'off',
     'prettier/prettier': ['error', { singleQuote: true, printWidth: 99 }],
-    'import/no-extraneous-dependencies': ['error', { devDependencies: ['**/*.test.js'] }],
+    'import/no-extraneous-dependencies': [
+      'error',
+      { devDependencies: ['**/*.test.js', '**/*.test.mjs'] },
+    ],
   },
-  overrides: [{
-    files: ['*.test.js'],
-    rules: {
-      'no-unused-expressions': 'off'
-    }
-  }]
+  overrides: [
+    {
+      files: ['*.test.js'],
+      rules: {
+        'no-unused-expressions': 'off',
+      },
+    },
+  ],
 };

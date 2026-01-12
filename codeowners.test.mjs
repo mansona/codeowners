@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 
-const Codeowners = require('./codeowners.js');
+import Codeowners from './codeowners.js';
 
 const repos = new Codeowners();
 
